@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @TableName("sys_active")
 public class SysActive {
 
-    @TableId(value = "activeId", type = IdType.AUTO)
+    @TableId(value = "active_id", type = IdType.AUTO)
     private Integer activeId;
 
     private String activeName;

@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("sys_teacher_comment")
 public class SysTeacherComment {
 
-    @TableId(value = "comentId", type = IdType.AUTO)
+    @TableId(value = "coment_id", type = IdType.AUTO)
     private Integer comentId;
 
     private Integer teacherId;

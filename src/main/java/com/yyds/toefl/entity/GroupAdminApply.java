@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("group_admin_apply")
 public class GroupAdminApply {
 
-    @TableId(value = "applyId", type = IdType.AUTO)
+    @TableId(value = "apply_id", type = IdType.AUTO)
     private Integer applyId;
 
     private Integer userId;

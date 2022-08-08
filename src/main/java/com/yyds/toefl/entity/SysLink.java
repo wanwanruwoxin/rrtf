@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("sys_link")
 public class SysLink {
 
-    @TableId(value = "signInId", type = IdType.AUTO)
+    @TableId(value = "link_id", type = IdType.AUTO)
     private Integer linkId;
 
     private String linkName;

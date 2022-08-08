@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("sys_sign_in")
 public class SysSignIn {
 
-    @TableId(value = "signInId", type = IdType.AUTO)
+    @TableId(value = "sign_in_id", type = IdType.AUTO)
     private Integer signInId;
 
     private Integer userId;

@@ -19,7 +19,7 @@ import java.util.Date;
 @TableName("sys_teacher")
 public class SysTeacher {
 
-    @TableId(value = "teacherId", type = IdType.AUTO)
+    @TableId(value = "teacher_id", type = IdType.AUTO)
     private Integer teacherId;
 
     private String loginName;

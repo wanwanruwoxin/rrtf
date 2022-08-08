@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("group_infor")
 public class GroupInfor {
 
-    @TableId(value = "groupId", type = IdType.AUTO)
+    @TableId(value = "group_id", type = IdType.AUTO)
     private Integer groupId;
 
     private Integer groupType;

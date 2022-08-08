@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @TableName("group_chat")
 public class GroupChat {
 
-    @TableId(value = "chatId", type = IdType.AUTO)
+    @TableId(value = "chat_id", type = IdType.AUTO)
     private Integer chatId;
 
     private Integer userId;
