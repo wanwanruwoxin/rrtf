@@ -6,6 +6,8 @@ import com.yyds.toefl.dao.SysUserDao;
 import com.yyds.toefl.entity.SysUser;
 import com.yyds.toefl.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
