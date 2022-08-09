@@ -30,5 +30,5 @@ public class SysLink {
     private String linkDesc;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime lastMofify;
+    private LocalDateTime lastModify;
 }
