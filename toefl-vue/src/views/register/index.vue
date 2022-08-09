@@ -3,12 +3,8 @@
     <div class="header">
       <div class="logo"><a href="####"><img src="@/assets/i/logo.png"></a></div>
       <div class="headerLink">
-        <RouterLink to="/login">
-          <a href="登陆注册/登录页.html" >登录</a>
-        </RouterLink>
-        <RouterLink to="/register">
-          <a href="登陆注册/注册页.html" >注册</a>
-        </RouterLink>
+        <a class="###">登录</a>
+        <a class="###">注册</a>
       </div>
     </div>
   </div>
@@ -25,21 +21,26 @@
         </ul>
       </div>
       <div class="fenxiang">
-        <a href="#" class="weibo"><img src="@/assets/i/weibo.png" ></a>
-        <a href="#" class="weixin"><img src="@/assets/i/weixin.png" ></a>
+        <a href="#" class="weibo"><img src="@/assets/i/weibo.png"></a>
+        <a href="#" class="weixin"><img src="@/assets/i/weixin.png"></a>
       </div>
     </div>
   </div>
   <div class="doc1180">
     <div class="login">
       <div class="login_left">
-        <h3 class="login_h3">欢迎登录人人托福</h3>
-        <div class="login_sr"><input type="text" class="login_inputYhm" v-model="form.username"></div>
-        <div class="login_sr"><input type="text" class="login_inputMm"  v-model="form.password"></div>
-        <div class="login_sr fn-clear"><input name="" type="text" class="login_inputYzm" value="验证码"><div class="login_inputYzmPic"><img src="@/assets/i/yzm.png"></div><a href="###" class="login_inputYzmH">看不清，还一张</a></div>
-        <div class="login_xieyi"><input name="" type="checkbox" value="" style="margin-right:10px; vertical-align:middle;">我同意<a href="###">《人人托福网服务协议》</a></div>
-        <div><a class="login_Button" @click="login">登录</a></div>
-        <div class="login_zcymm"><a href="###">注册帐号</a><a href="###" class="login_zhmm">找回密码</a></div>
+        <h3 class="login_h3">新用户注册</h3>
+        <div class="login_sr"><input type="text" class="login_inputYhm" placeholder="用户名" v-model="user.loginName"></div>
+        <div class="login_sr"><input type="text" class="login_inputMm" placeholder="密码" v-model="user.password"></div>
+        <div class="login_sr"><input type="text" class="login_inputEmail" placeholder="邮箱" v-model="user.email"></div>
+        <div class="login_sr fn-clear"><input name="" type="text" class="login_inputYzm" placeholder="验证码">
+          <div class="login_inputYzmPic"><img src="@/assets/i/yzm.png"></div>
+          <a href="###" class="login_inputYzmH">看不清，还一张</a></div>
+        <div class="login_xieyi"><input name="" type="checkbox" value=""
+                                        style="margin-right:10px; vertical-align:middle;">我同意<a
+          href="###">《人人托福网服务协议》</a></div>
+        <div><a href="###" class="login_Button">注册</a></div>
+        <div class="login_zcymm"><span>已有帐号？</span><a href="###">马上登录</a><a href="###" class="login_zhmm">找回密码</a></div>
       </div>
       <div class="login_right">
         <div class="login_rightH3">您也可以使用以下方式登录：</div>
@@ -83,34 +84,27 @@
 
 <script>
 import { reactive } from 'vue'
-// import { userAccountLogin } from '@/api/user'
 import axios from 'axios'
-import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Login',
+  name: 'register-page',
   setup () {
-    const form = reactive({
-      username: '',
-      password: ''
+    const user = reactive({
+      loginName: '',
+      password: '',
+      email: ''
     })
-    const store = useStore()
     const router = useRouter()
-    const param = new URLSearchParams()
-    const login = () => {
-      param.append('username', form.username)
-      param.append('password', form.password)
-      axios.post('/api/login', param).then(result => {
-        store.dispatch('login', result.data.data).then(() => {
-          router.push({ path: '/' })
-        })
+    const register = () => {
+      axios.post('/api/register', user).then(res => {
+        console.log(res.data.data)
+        router.push({ path: '/' })
       })
     }
     return {
-      form,
-      login
+      user,
+      register
     }
   }
 }

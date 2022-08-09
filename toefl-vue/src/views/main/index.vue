@@ -10,8 +10,12 @@
         </ul>
       </div>
       <div class="headerLink">
-        <a href="登陆注册/登录页.html" class="###">登录</a>
-        <a href="登陆注册/注册页.html" class="###">注册</a>
+        <RouterLink to="/login">
+          <a href="登陆注册/登录页.html" >登录</a>
+        </RouterLink>
+        <RouterLink to="/register">
+          <a href="登陆注册/注册页.html" >注册</a>
+        </RouterLink>
       </div>
     </div>
   </div>
