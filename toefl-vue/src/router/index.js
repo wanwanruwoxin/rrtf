@@ -13,6 +13,14 @@ const routes = [
   {
     path: '/register',
     component: () => import('@/views/register/index')
+  },
+  {
+    path: '/admin',
+    component: () => import('@/views/main/admin'),
+    children: [
+      { path: '/admin', component: () => import('@/views/main/main-footer') },
+      { path: '/admin/link', component: () => import('@/views/main/link') }
+    ]
   }
 ]
 

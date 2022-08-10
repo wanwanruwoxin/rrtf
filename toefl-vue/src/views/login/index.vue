@@ -34,9 +34,9 @@
     <div class="login">
       <div class="login_left">
         <h3 class="login_h3">欢迎登录人人托福</h3>
-        <div class="login_sr"><input type="text" class="login_inputYhm" v-model="form.username"></div>
-        <div class="login_sr"><input type="text" class="login_inputMm"  v-model="form.password"></div>
-        <div class="login_sr fn-clear"><input name="" type="text" class="login_inputYzm" value="验证码"><div class="login_inputYzmPic"><img src="@/assets/i/yzm.png"></div><a href="###" class="login_inputYzmH">看不清，还一张</a></div>
+        <div class="login_sr"><input type="text" class="login_inputYhm" v-model="form.username" placeholder="用户名"></div>
+        <div class="login_sr"><input type="text" class="login_inputMm"  v-model="form.password" placeholder="密码"></div>
+        <div class="login_sr fn-clear"><input name="" type="text" class="login_inputYzm" placeholder="验证码"><div class="login_inputYzmPic"><img src="@/assets/i/yzm.png"></div><a href="###" class="login_inputYzmH">看不清，还一张</a></div>
         <div class="login_xieyi"><input name="" type="checkbox" value="" style="margin-right:10px; vertical-align:middle;">我同意<a href="###">《人人托福网服务协议》</a></div>
         <div><a class="login_Button" @click="login">登录</a></div>
         <div class="login_zcymm"><a href="###">注册帐号</a><a href="###" class="login_zhmm">找回密码</a></div>
@@ -102,11 +102,15 @@ export default {
     const login = () => {
       param.append('username', form.username)
       param.append('password', form.password)
-      axios.post('/api/login', param).then(result => {
-        store.dispatch('login', result.data.data).then(() => {
-          router.push({ path: '/' })
+      // eslint-disable-next-line no-undef
+      const captcha = new TencentCaptcha('2088053498', () => {
+        axios.post('/api/login', param).then(result => {
+          store.dispatch('login', result.data.data).then(() => {
+            router.push({ path: '/' })
+          })
         })
       })
+      captcha.show()
     }
     return {
       form,
