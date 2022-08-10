@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @TableName("dic_article_type")
 public class DicArticleType {
     @TableId(value = "type_id",type = IdType.AUTO)
-    private int typeId;
+    private Integer typeId;
     private String typeName;
     private String status;
     @TableField(fill = FieldFill.INSERT)

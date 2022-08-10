@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @TableName("dic_group_type")
 public class DicGroupType {
     @TableId(value = "type_id;",type = IdType.AUTO)
-    private int typeId;
+    private Integer typeId;
     private String typeName;
     private String status;
 }

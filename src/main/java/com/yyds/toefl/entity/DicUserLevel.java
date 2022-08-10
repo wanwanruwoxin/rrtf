@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @TableName("dic_user_level")
 public class DicUserLevel  {
     @TableId(value = "level_id;",type = IdType.AUTO)
-    private int levelId;
+    private Integer levelId;
     private String levelName;
-    private int levelPay;
+    private Integer levelPay;
 }
