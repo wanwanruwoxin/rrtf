@@ -8,4 +8,13 @@ import com.yyds.toefl.entity.SysUser;
  */
 public interface SysUserService extends IService<SysUser> {
     void register(SysUser sysUser);
+
+
+    /**
+     * Created by zyc on 2022/8/9
+     */
+
+    SysUser getSysUser(String loginName,String passWord);
+
+    void updatePassword(SysUser sysUser);
 }

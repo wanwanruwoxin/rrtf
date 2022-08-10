@@ -1,6 +1,8 @@
 package com.yyds.toefl.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,7 +38,7 @@ public class SysTeacher {
 
     private String phoneNum;
 
-    private LocalDateTime birthday;
+    private Date birthday;
 
     private String introduce;
 
