@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 @TableName("class_sign_up")
 public class ClassSignUp {
     @TableId(value = "sign_up_id",type = IdType.AUTO)
-    private int signUpId;
-    private int userId;
-    private int classId;
+    private Integer signUpId;
+    private Integer userId;
+    private Integer classId;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime lastModify;
 }

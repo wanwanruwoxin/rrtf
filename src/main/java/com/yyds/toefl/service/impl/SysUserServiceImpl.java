@@ -1,6 +1,7 @@
 package com.yyds.toefl.service.impl;
 
 import cn.hutool.crypto.digest.BCrypt;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yyds.toefl.dao.SysUserDao;
 import com.yyds.toefl.entity.SysUser;
@@ -28,4 +29,29 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
         sysUser.setPassword(BCrypt.hashpw(sysUser.getPassword(), BCrypt.gensalt()));
         sysUserDao.insert(sysUser);
     }
+
+
+    /**
+     * Created by zyc on 2022/8/9
+     */
+    @Override
+    public SysUser getSysUser(String loginName, String passWord) {
+        SysUser sysUser = sysUserDao.selectOne(new LambdaQueryWrapper<SysUser>()
+                .select(SysUser::getLoginName, SysUser::getPassword, SysUser::getUserId)
+                .eq(SysUser::getLoginName, loginName));
+        return sysUser;
+
+    }
+
+    @Override
+    public void updatePassword(SysUser sysUser) {
+        SysUser user = sysUserDao.selectOne(new LambdaQueryWrapper<SysUser>()
+                .select(SysUser::getUserId, SysUser::getLoginName)
+                .eq(SysUser::getLoginName, sysUser.getLoginName()));
+        user.setPassword(BCrypt.hashpw(sysUser.getPassword(), BCrypt.gensalt()));
+        user.setEmail(sysUser.getEmail());
+        sysUserDao.updateById(user);
+    }
+
+
 }

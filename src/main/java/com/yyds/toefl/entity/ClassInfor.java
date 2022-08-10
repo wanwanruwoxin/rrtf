@@ -17,10 +17,10 @@ import java.time.LocalDateTime;
 @TableName("class_infor")
 public class ClassInfor {
     @TableId(value = "class_id",type = IdType.AUTO)
-    private int classId;
-    private int classType;
-    private int teacherId;
-    private int groupId;
+    private Integer classId;
+    private Integer classType;
+    private Integer teacherId;
+    private Integer groupId;
     private String classTitle;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime startDate;
@@ -35,7 +35,7 @@ public class ClassInfor {
     private String classGuide;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime lastModify;
-    private int signupNum;
+    private Integer signupNum;
     private String status;
 
 }

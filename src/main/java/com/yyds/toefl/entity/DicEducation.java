@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @TableName("dic_education")
 public class DicEducation {
     @TableId(value = "education_id",type = IdType.AUTO)
-    private int educationId;
+    private Integer educationId;
     private String educationName;
     private String educationDesc;
 }
